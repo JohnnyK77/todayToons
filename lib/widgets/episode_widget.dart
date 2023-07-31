@@ -2,6 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:toonflix/models/webtoon_episode_model.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
+///webtoon episode(ex: 124화)
+///
+///[episode] - [WebtoonEpisodeModel]
+///[webtoonId] webtoon id
 class Episode extends StatelessWidget {
   const Episode({
     super.key,

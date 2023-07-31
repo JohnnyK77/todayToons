@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:toonflix/views/detail_view.dart';
 
+/// webtoon item
+///
+/// [title] 제목
+/// [thumb] thumb img url
+/// [id] webtoon id
 class Webtoon extends StatelessWidget {
   final String title, thumb, id;
 

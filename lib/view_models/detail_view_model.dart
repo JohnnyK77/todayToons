@@ -4,6 +4,10 @@ import 'package:toonflix/models/webtoon_detail_model.dart';
 import 'package:toonflix/models/webtoon_episode_model.dart';
 import 'package:toonflix/repositories/webtoon_repository.dart';
 
+/// webtoon 상세 페이지 viewmodel
+///
+/// [prefs] sharedpreference instance
+/// [id] wetoon id
 class DetailViewModel with ChangeNotifier {
   final String id;
   final PrefsDataSource prefs;
@@ -16,6 +20,7 @@ class DetailViewModel with ChangeNotifier {
   List<WebtoonEpisodeModel> _episodes = [];
   List<WebtoonEpisodeModel> get episodes => _episodes;
 
+  //하트
   bool _isLiked = false;
   bool get isLiked => _isLiked;
 

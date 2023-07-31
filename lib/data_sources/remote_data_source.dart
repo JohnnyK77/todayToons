@@ -10,6 +10,7 @@ class RemoteDataSource {
   final String today = "today";
   final String episodes = "episodes";
 
+  //오늘의 webtoon list 조회
   Future<List<WebtoonModel>> getTodaysToons() async {
     List<WebtoonModel> webtoonInstance = [];
     final url = Uri.parse('$baseUrl/$today');
@@ -24,6 +25,9 @@ class RemoteDataSource {
     throw Error();
   }
 
+  ///webtoon 상세 조회
+  ///
+  ///[id] webtoon id
   Future<WebtoonDetailModel> getToonById(String id) async {
     final url = Uri.parse('$baseUrl/$id');
     final response = await http.get(url);
@@ -34,6 +38,9 @@ class RemoteDataSource {
     throw Error();
   }
 
+  ///webtoon episode list 조회
+  ///
+  ///[id] webtoon id
   Future<List<WebtoonEpisodeModel>> getLatestEpisodesById(String id) async {
     List<WebtoonEpisodeModel> eplisodesInstance = [];
     final url = Uri.parse('$baseUrl/$id/$episodes');

@@ -1,7 +1,7 @@
 import 'package:shared_preferences/shared_preferences.dart';
 
 class PrefsDataSource {
-  final keyLikedToons = 'likedToons';
+  final keyLikedToons = 'likedToons'; //webtoon 상세페이지 하트
   SharedPreferences? prefs;
 
   Future<void> getSharedPreferences() async {

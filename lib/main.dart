@@ -20,6 +20,7 @@ class App extends StatelessWidget {
   }
 }
 
+/// Naver Webtoon User-agent 적용
 class MyHttpOverrides extends HttpOverrides {
   @override
   HttpClient createHttpClient(SecurityContext? context) {

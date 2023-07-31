@@ -4,6 +4,11 @@ import 'package:toonflix/data_sources/prefs_data_source.dart';
 import 'package:toonflix/view_models/detail_view_model.dart';
 import 'package:toonflix/widgets/episode_widget.dart';
 
+/// webtoon 상세 페이지
+///
+/// [title] 제목
+/// [thumb] thumbnail img url
+/// [id] wetoon id
 class DetailView extends StatelessWidget {
   final String title, thumb, id;
 
