@@ -14,8 +14,14 @@ class App extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: HomeView(),
+    return MaterialApp(
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSwatch(
+          backgroundColor: Colors.white,
+          primarySwatch: Colors.green,
+        ),
+      ),
+      home: const HomeView(),
     );
   }
 }

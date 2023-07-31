@@ -33,8 +33,8 @@ class DetailView extends StatelessWidget {
               fontWeight: FontWeight.w500,
             ),
           ),
-          backgroundColor: Colors.white,
-          foregroundColor: Colors.green,
+          backgroundColor: Theme.of(context).colorScheme.background,
+          foregroundColor: Theme.of(context).colorScheme.primary,
           elevation: 2,
           centerTitle: true,
           actions: [
