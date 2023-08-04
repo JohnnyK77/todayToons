@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:toonflix/data/data_source/prefs_data_source.dart';
 import 'package:toonflix/ui/detail/detail_view_model.dart';
 import 'package:toonflix/ui/widgets/episode_widget.dart';
 
@@ -22,7 +21,7 @@ class DetailView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
-      create: (context) => DetailViewModel(id: id, prefs: PrefsDataSource()),
+      create: (context) => DetailViewModel(id: id),
       child: Scaffold(
         backgroundColor: Colors.white,
         appBar: AppBar(

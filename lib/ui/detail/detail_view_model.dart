@@ -6,13 +6,12 @@ import 'package:toonflix/data/repository/webtoon_repository.dart';
 
 /// webtoon 상세 페이지 viewmodel
 ///
-/// [prefs] sharedpreference instance
 /// [id] wetoon id
 class DetailViewModel with ChangeNotifier {
   final String id;
-  final PrefsDataSource prefs;
 
   late final WebtoonRepository _repository;
+  late final PrefsDataSource _prefs;
 
   WebtoonDetailModel? _webtoonDetail;
   WebtoonDetailModel? get webtoonDetail => _webtoonDetail;
@@ -24,8 +23,9 @@ class DetailViewModel with ChangeNotifier {
   bool _isLiked = false;
   bool get isLiked => _isLiked;
 
-  DetailViewModel({required this.id, required this.prefs}) {
+  DetailViewModel({required this.id}) {
     _repository = WebtoonRepository();
+    _prefs = PrefsDataSource();
     _getToonById(id);
     _getLatestEpisodesById(id);
     _getLiked();
@@ -42,26 +42,26 @@ class DetailViewModel with ChangeNotifier {
   }
 
   Future<void> _getLiked() async {
-    final likedToons = await prefs.getStringList(prefs.keyLikedToons);
+    final likedToons = await _prefs.getStringList(_prefs.keyLikedToons);
     if (likedToons != null) {
       if (likedToons.contains(id)) {
         _isLiked = true;
         notifyListeners();
       }
     } else {
-      prefs.setStringList(prefs.keyLikedToons, []);
+      _prefs.setStringList(_prefs.keyLikedToons, []);
     }
   }
 
   void onFavoritePressed() async {
-    final likedToons = await prefs.getStringList(prefs.keyLikedToons);
+    final likedToons = await _prefs.getStringList(_prefs.keyLikedToons);
     if (likedToons != null) {
       if (_isLiked) {
         likedToons.remove(id);
       } else {
         likedToons.add(id);
       }
-      prefs.setStringList(prefs.keyLikedToons, likedToons);
+      _prefs.setStringList(_prefs.keyLikedToons, likedToons);
       _isLiked = !_isLiked;
       notifyListeners();
     }
