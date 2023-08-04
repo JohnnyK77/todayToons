@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:toonflix/data/data_source/prefs_data_source.dart';
 import 'package:toonflix/data/model/webtoon_detail_model.dart';
 import 'package:toonflix/data/model/webtoon_episode_model.dart';
+import 'package:toonflix/data/repository/local_repository.dart';
 import 'package:toonflix/data/repository/webtoon_repository.dart';
 
 /// webtoon 상세 페이지 viewmodel
@@ -10,8 +10,8 @@ import 'package:toonflix/data/repository/webtoon_repository.dart';
 class DetailViewModel with ChangeNotifier {
   final String id;
 
-  late final WebtoonRepository _repository;
-  late final PrefsDataSource _prefs;
+  late final WebtoonRepository _webtoonRepository;
+  late final LocalRepository _localRepository;
 
   WebtoonDetailModel? _webtoonDetail;
   WebtoonDetailModel? get webtoonDetail => _webtoonDetail;
@@ -24,44 +24,44 @@ class DetailViewModel with ChangeNotifier {
   bool get isLiked => _isLiked;
 
   DetailViewModel({required this.id}) {
-    _repository = WebtoonRepository();
-    _prefs = PrefsDataSource();
+    _webtoonRepository = WebtoonRepository();
+    _localRepository = LocalRepository();
     _getToonById(id);
     _getLatestEpisodesById(id);
     _getLiked();
   }
 
   Future<void> _getToonById(String id) async {
-    _webtoonDetail = await _repository.getToonById(id);
+    _webtoonDetail = await _webtoonRepository.getToonById(id);
     notifyListeners();
   }
 
   Future<void> _getLatestEpisodesById(String id) async {
-    _episodes = await _repository.getLatestEpisodesById(id);
+    _episodes = await _webtoonRepository.getLatestEpisodesById(id);
     notifyListeners();
   }
 
   Future<void> _getLiked() async {
-    final likedToons = await _prefs.getStringList(_prefs.keyLikedToons);
+    final likedToons = await _localRepository.getLikeList();
     if (likedToons != null) {
       if (likedToons.contains(id)) {
         _isLiked = true;
         notifyListeners();
       }
     } else {
-      _prefs.setStringList(_prefs.keyLikedToons, []);
+      _localRepository.setLikeList([]);
     }
   }
 
   void onFavoritePressed() async {
-    final likedToons = await _prefs.getStringList(_prefs.keyLikedToons);
+    final likedToons = await _localRepository.getLikeList();
     if (likedToons != null) {
       if (_isLiked) {
         likedToons.remove(id);
       } else {
         likedToons.add(id);
       }
-      _prefs.setStringList(_prefs.keyLikedToons, likedToons);
+      _localRepository.setLikeList(likedToons);
       _isLiked = !_isLiked;
       notifyListeners();
     }
