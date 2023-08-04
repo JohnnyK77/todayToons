@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:toonflix/data_sources/prefs_data_source.dart';
-import 'package:toonflix/models/webtoon_detail_model.dart';
-import 'package:toonflix/models/webtoon_episode_model.dart';
-import 'package:toonflix/repositories/webtoon_repository.dart';
+import 'package:toonflix/data/data_source/prefs_data_source.dart';
+import 'package:toonflix/data/model/webtoon_detail_model.dart';
+import 'package:toonflix/data/model/webtoon_episode_model.dart';
+import 'package:toonflix/data/repository/webtoon_repository.dart';
 
 /// webtoon 상세 페이지 viewmodel
 ///

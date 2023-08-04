@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:toonflix/models/webtoon_model.dart';
-import 'package:toonflix/repositories/webtoon_repository.dart';
+import 'package:toonflix/data/model/webtoon_model.dart';
+import 'package:toonflix/data/repository/webtoon_repository.dart';
 
 ///메인페이지 view model
 class HomeViewModel with ChangeNotifier {

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:toonflix/models/webtoon_model.dart';
-import 'package:toonflix/view_models/home_view_model.dart';
-import 'package:toonflix/widgets/webtoon_widget.dart';
+import 'package:toonflix/data/model/webtoon_model.dart';
+import 'package:toonflix/ui/home_view_model.dart';
+import 'package:toonflix/ui/widgets/webtoon_widget.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
