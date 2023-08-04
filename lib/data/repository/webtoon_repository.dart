@@ -1,13 +1,11 @@
 import 'package:toonflix/data/data_source/remote_data_source.dart';
+import 'package:toonflix/data/locator.dart';
 import 'package:toonflix/data/model/webtoon_detail_model.dart';
 import 'package:toonflix/data/model/webtoon_episode_model.dart';
 import 'package:toonflix/data/model/webtoon_model.dart';
 
 class WebtoonRepository {
-  final RemoteDataSource _remoteDataSource;
-
-  WebtoonRepository(RemoteDataSource remoteDataSource)
-      : _remoteDataSource = remoteDataSource;
+  final RemoteDataSource _remoteDataSource = locator.get<RemoteDataSource>();
 
   Future<List<WebtoonModel>> getTodaysToons() {
     return _remoteDataSource.getTodaysToons();
