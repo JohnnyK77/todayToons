@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:toonflix/data/data_source/prefs_data_source.dart';
+import 'package:toonflix/data/data_source/remote_data_source.dart';
 import 'package:toonflix/data/model/webtoon_detail_model.dart';
 import 'package:toonflix/data/model/webtoon_episode_model.dart';
 import 'package:toonflix/data/repository/webtoon_repository.dart';
@@ -25,7 +26,7 @@ class DetailViewModel with ChangeNotifier {
   bool get isLiked => _isLiked;
 
   DetailViewModel({required this.id, required this.prefs}) {
-    _repository = WebtoonRepository();
+    _repository = WebtoonRepository(RemoteDataSource());
     _getToonById(id);
     _getLatestEpisodesById(id);
     _getLiked();
