@@ -1,8 +1,8 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:toonflix/data/locator.dart';
-import 'package:toonflix/ui/home_view.dart';
+import 'package:toonflix/di_injector.dart';
+import 'package:toonflix/presentation/home_view.dart';
 
 void main() {
   HttpOverrides.global = MyHttpOverrides();

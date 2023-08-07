@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:toonflix/data/model/webtoon_episode_model.dart';
+import 'package:toonflix/domain/entity/webtoon_episodes_entity.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
 ///webtoon episode(ex: 124화)
@@ -13,7 +14,7 @@ class Episode extends StatelessWidget {
     required this.webtoonId,
   });
   final String webtoonId;
-  final WebtoonEpisodeModel episode;
+  final EpisodeObj episode;
 
   void onButtonTap() async {
     await launchUrlString(

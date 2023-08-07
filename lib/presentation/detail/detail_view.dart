@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:toonflix/ui/detail/detail_view_model.dart';
-import 'package:toonflix/ui/widgets/episode_widget.dart';
+import 'package:toonflix/presentation/detail/detail_view_model.dart';
+import 'package:toonflix/presentation/widgets/episode_widget.dart';
 
 /// webtoon 상세 페이지
 ///

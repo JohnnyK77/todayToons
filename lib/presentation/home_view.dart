@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:toonflix/data/model/webtoon_model.dart';
-import 'package:toonflix/ui/home_view_model.dart';
-import 'package:toonflix/ui/widgets/webtoon_widget.dart';
+import 'package:toonflix/presentation/home_view_model.dart';
+import 'package:toonflix/presentation/widgets/webtoon_widget.dart';
+import 'package:toonflix/domain/entity/webtoons_entity.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
@@ -47,7 +47,7 @@ class HomeView extends StatelessWidget {
     );
   }
 
-  ListView makeList(BuildContext context, List<WebtoonModel> wetoons) {
+  ListView makeList(BuildContext context, List<WebtoonObj> wetoons) {
     return ListView.separated(
       scrollDirection: Axis.horizontal,
       itemCount: wetoons.length,
