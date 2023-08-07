@@ -1,12 +1,14 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:hive_flutter/adapters.dart';
 import 'package:toonflix/di_injector.dart';
 import 'package:toonflix/presentation/home_view.dart';
 
-void main() {
+void main() async {
   HttpOverrides.global = MyHttpOverrides();
   initLocator();
+  await Hive.initFlutter();
   runApp(const App());
 }
 
