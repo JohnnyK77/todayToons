@@ -11,6 +11,7 @@ import 'package:toonflix/domain/entity/webtoon_episodes_entity.dart';
 import 'package:toonflix/domain/repository/webtoon_repository.dart';
 
 class WebtoonRepositoryImpl implements WebtoonRepository {
+  @override
   RemoteDataSource remoteDataSource;
 
   WebtoonRepositoryImpl(this.remoteDataSource);

@@ -1,5 +1,6 @@
 import 'package:toonflix/domain/repository/local_repository.dart';
 
+/// 하트 리스트 가져오기
 class LikeGetUseCase {
   LocalRepository localRepository;
 
