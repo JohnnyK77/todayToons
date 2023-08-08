@@ -41,8 +41,7 @@ Clean architecture (MVVM with Provider)
  ┃ ┣ 📜home_view.dart
  ┃ ┗ 📜home_view_model.dart
  ┣ 📜di_injector.dart
- ┗ 📜main.dart
- 
+ ┗ 📜main.dart 
 
 ---
 ### data layer
