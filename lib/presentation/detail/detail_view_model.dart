@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:toonflix/di_injector.dart';
 import 'package:toonflix/domain/entity/webtoon_detail_entity.dart';
 import 'package:toonflix/domain/entity/webtoon_episodes_entity.dart';
-import 'package:toonflix/domain/repository/local_repository.dart';
-import 'package:toonflix/domain/repository/webtoon_repository.dart';
 import 'package:toonflix/domain/usecase/like_get_use_case.dart';
 import 'package:toonflix/domain/usecase/like_set_use_case.dart';
 import 'package:toonflix/domain/usecase/webtoon/webtoon_detail_usecase.dart';
@@ -31,13 +29,11 @@ class DetailViewModel with ChangeNotifier {
   bool get isLiked => _isLiked;
 
   DetailViewModel({required this.id}) {
-    var webtoonRepository = locator.get<WebtoonRepository>();
-    detailUsecase = WebtoonDetailUseCase(webtoonRepository);
-    episodeUsecase = WebtoonEpisodesUseCase(webtoonRepository);
+    detailUsecase = locator.get<WebtoonDetailUseCase>();
+    episodeUsecase = locator.get<WebtoonEpisodesUseCase>();
 
-    var localRepository = locator.get<LocalRepository>();
-    likeGetUsecase = LikeGetUseCase(localRepository);
-    likeSetUsecase = LikeSetUseCase(localRepository);
+    likeGetUsecase = locator.get<LikeGetUseCase>();
+    likeSetUsecase = locator.get<LikeSetUseCase>();
 
     _getToonById(id);
     _getLatestEpisodesById(id);

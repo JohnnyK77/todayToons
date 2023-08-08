@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:toonflix/di_injector.dart';
 import 'package:toonflix/domain/entity/webtoons_entity.dart';
-import 'package:toonflix/domain/repository/webtoon_repository.dart';
 import 'package:toonflix/domain/usecase/webtoon/webtoon_today_list_usecase.dart';
 
 ///메인페이지 view model
@@ -12,8 +11,7 @@ class HomeViewModel with ChangeNotifier {
   List<WebtoonObj> get webtoons => _webtoons;
 
   HomeViewModel() {
-    var webtoonRepository = locator.get<WebtoonRepository>();
-    webtoonTodayListUsecase = WebtoonTodayListUsecase(webtoonRepository);
+    webtoonTodayListUsecase = locator.get<WebtoonTodayListUsecase>();
     _getTodayToons();
   }
 
