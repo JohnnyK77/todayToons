@@ -1,3 +1,5 @@
+import 'package:toonflix/domain/entity/webtoon_episodes_entity.dart';
+
 class WebtoonEpisodeModel {
   String id;
   final String title, rating, date;
@@ -7,4 +9,7 @@ class WebtoonEpisodeModel {
         title = json['title'],
         rating = json['rating'],
         date = json['date'];
+
+  EpisodeObj toEntity() =>
+      EpisodeObj(id: id, title: title, rating: rating, date: date);
 }

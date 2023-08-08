@@ -24,8 +24,7 @@ class WebtoonRepositoryImpl implements WebtoonRepository {
     final List<dynamic> datas = jsonDecode(response.body);
     for (var data in datas) {
       var model = WebtoonModel.fromJson(data);
-      webtoons.add(
-          WebtoonObj(title: model.title, thumb: model.thumb, id: model.id));
+      webtoons.add(model.toEntity());
     }
 
     return WebtoonsEntity(
@@ -43,12 +42,7 @@ class WebtoonRepositoryImpl implements WebtoonRepository {
     var model = WebtoonDetailModel.fromJson(webtoon);
 
     return WebtoonDetailEntity(
-      detail: WebtoonDetailObj(
-        title: model.title,
-        about: model.about,
-        genre: model.genre,
-        age: model.age,
-      ),
+      detail: model.toEntity(),
       isSuccess: response.statusCode == 200,
       message: response.reasonPhrase ?? "",
     );
@@ -66,12 +60,7 @@ class WebtoonRepositoryImpl implements WebtoonRepository {
         var idVal = int.parse(model.id);
         idVal++;
         model.id = idVal.toString();
-        episodes.add(EpisodeObj(
-          id: model.id,
-          title: model.title,
-          rating: model.rating,
-          date: model.date,
-        ));
+        episodes.add(model.toEntity());
       }
     }
     return WebtoonEpisodesEntity(
