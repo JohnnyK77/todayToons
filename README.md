@@ -2,6 +2,8 @@
 
 오늘의 웹툰을 webView로 볼 수 있는 App.
 
+![Screen_Recording_20240416-175216](https://github.com/JohnnyK77/todayToons/assets/118873509/49dffb9c-cf95-4cc2-a33d-1fb81fa71aef)
+
 ## Architecture
 
 Clean architecture (MVVM with Provider)
